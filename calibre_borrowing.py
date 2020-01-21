@@ -38,8 +38,8 @@ def do_borrow(name, isbn):
 
 def do_return(name, isbn):
     book_id, book = get_book_by_isbn(isbn)
-    print(f"{name} returned {book.get('title', '')}")
     if book_id is not None:
+        print(f"{name} returned {book.get('title', '')}")
         borrowers = set([b for b in book.get('#borrowed', "").split(BORROWER_SEPPARATOR) if b != "" ])
         if name in borrowers:
             borrowers.remove(name)

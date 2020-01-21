@@ -38,7 +38,7 @@ def get_book_by_isbn(isbn):
     books = get_books()
     matches = [k for k, v in books.items() if v.get("#isbn", None) == isbn]
     if len(matches) == 0:
-        return None
+        return None, None
     return matches[0], books[matches[0]]
 
 def change_borrower(book_id, borrower):
