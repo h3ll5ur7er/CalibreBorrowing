@@ -9,6 +9,10 @@ from calibre_interaction import get_books, change_borrower, get_book_by_isbn
 
 from calibre_config import BORROWER_SEPPARATOR, COLUMNS, COLUMN_NAMES, FULLSCREEN
 
+import board
+import adafruit_dotstar as dotstar
+dots = dotstar.DotStar(board.SCK, board.MOSI, 3, brightness=1)
+
 
 window = Tk()
 if FULLSCREEN:
@@ -44,15 +48,23 @@ def do_return(name, isbn):
 
 
 def visualize_command():
+    global dots
+    dots[0] = (0, 255, 0)
     print("command set")
 
 def visualize_name():
+    global dots
+    dots[1] = (0, 255, 0)
     print("name set")
 
 def visualize_isbn():
+    global dots
+    dots[2] = (0, 255, 0)
     print("isbn set")
 
 def reset_visualization():
+    global dots
+    dots.fill((0, 0, 0))
     print("transaction reset")
 
 
