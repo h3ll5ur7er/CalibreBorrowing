@@ -66,11 +66,6 @@ The keys inside the metadata is the BOOK_ID used in other requests
 To make changes in any column you have to be logged in as a user with write permission.
 By design the SCS library does not have LDAP integration. All users inside the internal network have read access to the library. There is one account with write access used by the borrowing system.
 
-```
-username: library
-password: $om3V3ry$3cur3P@$$w0rd
-```
-
 `POST: BASE_URL/cdb/set-fields/BOOK_ID/LIBRARY_NAME` with payload `{"changes":{"COLUMN_NAME":VALUE}}`
 
 To borrow a book the custom column is called `#borrowed` and the value is a list of names separated by a `&` character.
