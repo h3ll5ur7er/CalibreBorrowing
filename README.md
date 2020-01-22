@@ -54,10 +54,12 @@ As SCS has multiple instances of some books (where the isbn is not unique obviou
 
 ### Get all books
 To get the first batch of metadata use:
+
 `GET: BASE_URL/interface-data/books-init`
 
 Until the response is empty use the following POST request to fetch another batch of metadata.
-`POST: BASE_URL/interface-data/more-books?library_id=LIBRARY_NAME` with payload `{"offset":OFFSET,"query":"","sort":"timestamp","sort_order":"desc","vl":""}`
+
+`POST: BASE_URL/interface-data/more-books?library_id=LIBRARY_NAME` with payload  `{"offset":OFFSET,"query":"","sort":"timestamp","sort_order":"desc","vl":""}`
 
 The books are listed under the metadata key.
 The keys inside the metadata is the BOOK_ID used in other requests
